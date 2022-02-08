@@ -1,5 +1,5 @@
 .JobCardList {
-  border: 3px solid blue;
+  border: 6px solid orange;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
