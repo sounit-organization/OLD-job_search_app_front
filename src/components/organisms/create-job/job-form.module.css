@@ -1,0 +1,11 @@
+.JobForm {
+  border: 6px solid orange;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.JobForm__control {
+  border: 6px solid orange;
+  margin-bottom: 1rem;
+}

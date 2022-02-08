@@ -7,7 +7,7 @@ const JobCard = (props) => {
       <h2 className={`${classes[componentName]}__title`}>{props.job.title}</h2>
       <div>
         {props.job.skills.map((skill) => (
-          <div>{skill}</div>
+          <div key={skill.id}>{skill.title}</div>
         ))}
       </div>
     </Card>

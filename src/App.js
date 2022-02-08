@@ -1,8 +1,14 @@
 import "./App.css";
-import JobList from "./pages/job-list";
+import CreateJob from "./pages/create-job";
+// import JobList from "./pages/job-list";
 
 function App() {
-  return <JobList />;
+  return (
+    <div>
+      {/* <JobList /> */}
+      <CreateJob />
+    </div>
+  );
 }
 
 export default App;
