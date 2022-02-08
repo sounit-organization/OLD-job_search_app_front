@@ -1,0 +1,14 @@
+.LikeButton {
+  border: pink 3px solid;
+  color: pink;
+}
+
+.LikeButton:hover,
+.LikeButton:active {
+  background-color: pink;
+}
+
+.LikeButton--liked {
+  background-color: pink;
+  color: #fff;
+}
