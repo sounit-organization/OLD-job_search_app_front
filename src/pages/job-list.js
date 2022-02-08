@@ -1,6 +1,5 @@
 import JobCardList from "../components/organisms/job-list/job-card-list";
 import JobSearch from "../components/organisms/job-list/job-search";
-import Header from "../components/organisms/shared/header";
 import classes from "./job-list.module.css";
 
 const JobList = () => {
@@ -22,7 +21,6 @@ const JobList = () => {
 
   return (
     <div className={classes[componentName]}>
-      <Header />
       <JobSearch />
       <JobCardList jobList={dataList} />
     </div>
