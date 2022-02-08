@@ -3,6 +3,7 @@
 # add
 .env
 .env.production
+.firebase
 
 # dependencies
 /node_modules
