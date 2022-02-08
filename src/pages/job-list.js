@@ -1,28 +1,33 @@
+import { useEffect, useState } from "react";
 import JobCardList from "../components/organisms/job-list/job-card-list";
 import JobSearch from "../components/organisms/job-list/job-search";
 import classes from "./job-list.module.css";
 
 const JobList = () => {
-  const dataList = [
-    {
-      id: "j1",
-      title: "React Frontend Developer",
-      skills: [
-        { id: "s1", title: "React" },
-        { id: "s2", title: "MySQL" },
-      ],
-    },
-    {
-      id: "j2",
-      title: "Node Backend Developer",
-      skills: [{ id: "s3", title: "Node" }],
-    },
-  ];
+  const [jobList, setJobList] = useState([]);
+
+  useEffect(() => {
+    const fetchJobList = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/jobs`
+        );
+
+        const responseData = await response.json();
+
+        setJobList(responseData.jobs);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchJobList();
+  }, []);
 
   return (
     <div className={classes[componentName]}>
       <JobSearch />
-      <JobCardList jobList={dataList} />
+      <JobCardList jobList={jobList} />
     </div>
   );
 };

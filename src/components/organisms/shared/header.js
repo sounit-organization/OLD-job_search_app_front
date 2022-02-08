@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavItems from "../../molecules/nav-items";
 import classes from "./header.module.css";
 
@@ -9,7 +10,9 @@ const Header = () => {
 
   return (
     <header className={classes[componentName]}>
-      <h1>Job Search</h1>
+      <Link to="/" className={classes[`${componentName}__logo-link`]}>
+        <h1>Job Search</h1>
+      </Link>
       <div className={classes[`${componentName}__nav-items`]}>
         <NavItems items={navItems} />
       </div>
