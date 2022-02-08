@@ -1,0 +1,14 @@
+.SearchBar {
+  border: 3px orange solid;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-around;
+}
+
+.SearchBar__input-wrap {
+  display: flex;
+  border: 3px solid orange;
+  width: 80%;
+  background-color: red;
+}

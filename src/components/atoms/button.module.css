@@ -1,0 +1,16 @@
+.Button {
+  border: 3px solid green;
+  padding: 0.5rem;
+  display: block;
+  background-color: #fff;
+  color: green;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Button:hover,
+.Button:active {
+  background-color: green;
+  color: #fff;
+}
