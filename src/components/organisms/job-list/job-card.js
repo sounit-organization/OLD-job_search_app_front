@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Card from "../../atoms/card";
 import classes from "./job-card.module.css";
+import LikeButton from "../../atoms/like-button";
 
 const JobCard = (props) => {
   return (
@@ -10,6 +12,7 @@ const JobCard = (props) => {
           <div key={skill.id}>{skill.title}</div>
         ))}
       </div>
+      <LikeButton title="Like" />
     </Card>
   );
 };
