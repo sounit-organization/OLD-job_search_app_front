@@ -4,12 +4,9 @@ const ShowFavIcon = () => {
   const favoriteJobs = useSelector((state) => state.user.favoriteJobs);
 
   const getFavJobsCount = () => {
-    let count = 0;
-    for (let key in favoriteJobs) {
-      count++;
-    }
-    return count;
+    return Object.keys(favoriteJobs).length;
   };
+
   return <div>Favorite {getFavJobsCount()}</div>;
 };
 
