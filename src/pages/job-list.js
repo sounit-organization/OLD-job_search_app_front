@@ -5,8 +5,19 @@ import classes from "./job-list.module.css";
 
 const JobList = () => {
   const dataList = [
-    { id: 1, title: "React Frontend Developer", skills: ["React", "Mongodb"] },
-    { id: 2, title: "Node Backend Developer", skills: ["Node.js"] },
+    {
+      id: "j1",
+      title: "React Frontend Developer",
+      skills: [
+        { id: "s1", title: "React" },
+        { id: "s2", title: "MySQL" },
+      ],
+    },
+    {
+      id: "j2",
+      title: "Node Backend Developer",
+      skills: [{ id: "s3", title: "Node" }],
+    },
   ];
 
   return (
