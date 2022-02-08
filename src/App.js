@@ -1,8 +1,8 @@
 import "./App.css";
-import Test from "./pages/Test";
+import JobList from "./pages/job-list";
 
 function App() {
-  return <Test />;
+  return <JobList />;
 }
 
 export default App;
