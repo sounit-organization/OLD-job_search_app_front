@@ -12,7 +12,9 @@ const JobForm = () => {
     await fetch(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
       method: "POST",
       body: JSON.stringify({ title: jobTitle }),
-      headers: {},
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
   };
 
