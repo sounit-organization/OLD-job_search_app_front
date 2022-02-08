@@ -14,4 +14,6 @@
 
 .Header__nav-items {
   border: 6px solid orange;
+  display: flex;
+  align-items: center;
 }

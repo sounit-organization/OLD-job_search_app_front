@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Card from "../../atoms/card";
 import classes from "./job-card.module.css";
 import LikeButton from "../../atoms/like-button";
