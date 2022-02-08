@@ -11,7 +11,7 @@ const JobCard = (props) => {
           <div key={skill.id}>{skill.title}</div>
         ))}
       </div>
-      <LikeButton title="Like" />
+      <LikeButton job={props.job} />
     </Card>
   );
 };

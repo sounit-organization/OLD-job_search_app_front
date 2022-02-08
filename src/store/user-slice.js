@@ -3,12 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    favoriteJobs: [],
+    favoriteJobs: {},
   },
   reducers: {
     addFavorite: (state, action) => {
-      console.log("addFavorite state", state);
-      console.log("addFavorite action", action);
+      const newJob = action.payload;
+      state.favoriteJobs[newJob.id] = newJob;
+    },
+    removeFavorite: (state, action) => {
+      delete state.favoriteJobs[action.payload.id];
     },
   },
 });
