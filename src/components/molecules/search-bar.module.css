@@ -1,5 +1,4 @@
 .SearchBar {
-  border: 6px orangered solid;
   display: flex;
   width: 100%;
   padding: 1rem;
@@ -8,6 +7,5 @@
 
 .SearchBar__input-wrap {
   display: flex;
-  border: 6px solid orangered;
   width: 80%;
 }
