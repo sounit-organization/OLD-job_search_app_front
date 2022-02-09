@@ -7,7 +7,11 @@ const JobCardList = (props) => {
   return (
     <div className={classes[componentName]}>
       {props.jobList.map((job) => (
-        <JobCard key={job.id} job={job} />
+        <JobCard
+          key={job.id}
+          job={job}
+          className={classes[`${componentName}__card`]}
+        />
       ))}
     </div>
   );

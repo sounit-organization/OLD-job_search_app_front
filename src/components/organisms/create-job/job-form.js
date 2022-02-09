@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../../atoms/button";
+import CreateButton from "../../atoms/create-button";
 import Input from "../../atoms/input";
 import classes from "./job-form.module.css";
 
@@ -21,10 +21,21 @@ const JobForm = () => {
   return (
     <form className={classes[componentName]} onSubmit={formSubmitHandler}>
       <div className={classes[`${componentName}__control`]}>
-        <label>Job Title</label>
-        <Input value={jobTitle} onChange={setJobTitle} />
+        <label className={classes[`${componentName}__label`]} htmlFor="title">
+          Job Title
+        </label>
+        <Input
+          id="title"
+          placeholder="title"
+          value={jobTitle}
+          onChange={setJobTitle}
+        />
       </div>
-      <Button title="Submit" />
+
+      <CreateButton
+        title="Add New Job"
+        className={classes[`${componentName}__button`]}
+      />
     </form>
   );
 };

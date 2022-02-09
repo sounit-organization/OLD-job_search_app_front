@@ -1,6 +1,10 @@
 .JobCardList {
-  border: 6px solid orange;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 1rem;
+}
+
+.JobCardList__card {
+  margin-bottom: 1rem;
 }

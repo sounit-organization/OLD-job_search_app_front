@@ -4,7 +4,7 @@ import LikeButton from "../../atoms/like-button";
 
 const JobCard = (props) => {
   return (
-    <Card className={classes[componentName]}>
+    <Card className={`${classes[componentName]} ${props.className}`}>
       <h2 className={`${classes[componentName]}__title`}>{props.job.title}</h2>
       <div>
         {props.job.skills.map((skill) => (

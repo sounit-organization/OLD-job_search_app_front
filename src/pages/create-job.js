@@ -4,7 +4,7 @@ import classes from "./create-job.module.css";
 const CreateJob = () => {
   return (
     <div className={classes[componentName]}>
-      <JobForm />
+      <JobForm className={classes[`${componentName}__form`]} />
     </div>
   );
 };

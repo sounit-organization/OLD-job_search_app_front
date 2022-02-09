@@ -26,7 +26,6 @@ const JobList = () => {
 
   return (
     <div className={classes[componentName]}>
-      <JobSearch />
       <JobCardList jobList={jobList} />
     </div>
   );

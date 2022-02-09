@@ -1,19 +1,30 @@
 .Header {
-  border: 6px solid orange;
   width: 100%;
   padding: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: #24292f;
+  color: #fff;
+}
+
+.Header__input {
+  width: 20%;
+  background-color: #24292f;
+  color: #fff;
 }
 
 .Header__logo-link {
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+}
+
+.Header__logo-text {
+  font-size: 1rem;
+  width: 6rem;
 }
 
 .Header__nav-items {
-  border: 6px solid orange;
   display: flex;
   align-items: center;
+  color: #fff;
 }
