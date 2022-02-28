@@ -5,7 +5,7 @@
 - npm start
 - you will see the frontend screen
 
-# work flow
+# Work Flow
 - Setup project
 - Find point to fix by seeing production app
 - Create issue
