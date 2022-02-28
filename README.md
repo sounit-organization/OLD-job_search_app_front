@@ -5,6 +5,17 @@
 - npm start
 - you will see the frontend screen
 
+# work flow
+- Setup project
+- Find point to fix by seeing production app
+- Create issue
+- Issue review
+- Fix code
+- Pull-request
+- Code review
+- Merge to master
+- task done.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
