@@ -1,4 +1,4 @@
-# Setup steps
+# Setup Steps
 - clone this repository
 - get .env file from google drive
 - put .env file to root directory(same directory with package.json)
