@@ -1,3 +1,10 @@
+# setup
+- clone this repository
+- get .env file from google drive
+- put .env file to root directory(same directory with package.json)
+- npm start
+- you will see the frontend screen
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
