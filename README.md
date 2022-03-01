@@ -6,12 +6,11 @@
 - you will see the frontend screen
 
 # Work Flow
-- Setup project
-- Find point to fix by seeing production app
-- Create issue
-- Issue review
+- Create issue (if your issue doesn't exit)
+- Issue review (if you create a new one)
+- create a new branch which follow naming convention
 - Fix code
-- Pull-request
+- Pull-request to origin master
 - Code review
 - Merge to master
 - task done.
