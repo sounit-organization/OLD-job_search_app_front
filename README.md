@@ -9,6 +9,9 @@
 - Create issue (if your issue doesn't exit)
 - Issue review (if you create a new one)
 - create a new branch which follow naming convention
+```
+git switch -c issues/66-sample-test
+```
 - Fix code
 - push YOUR BRANCH to your remote
 ```
