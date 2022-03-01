@@ -10,7 +10,10 @@
 - Issue review (if you create a new one)
 - create a new branch which follow naming convention
 - Fix code
-- push YOUR BRANCH to your remote 
+- push YOUR BRANCH to your remote
+```
+git push origin YOUR_BRANCH
+```
 - create Pull-request from YOUR BRANCH to origin master
 - Code review
 - Merge to master
