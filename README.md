@@ -11,7 +11,7 @@
 - create a new branch which follow naming convention
 - Fix code
 - push YOUR BRANCH to your remote 
-- Pull-request to origin master
+- create Pull-request from YOUR BRANCH to origin master
 - Code review
 - Merge to master
 - task done.
