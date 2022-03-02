@@ -1,0 +1,20 @@
+.jobDetail-item {
+  list-style: none;
+  width: 90%;
+  margin: 2rem auto;
+  border: 1px solid rgb(212, 210, 208);
+  border-radius: 1rem;
+  max-width: 40rem;
+}
+.jobDetail__header {
+  padding: 1rem;
+  border-bottom: 2px solid rgb(212, 210, 208);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+}
+.jobDetail__location,
+.jobDetail__role {
+  font-size: 0.8rem;
+}
+.jobDetail__main {
+  padding: 1rem;
+}
