@@ -7,6 +7,7 @@ const Header = () => {
   const navItems = [
     { id: "n1", title: "Jobs", to: "/" },
     { id: "n2", title: "Add Job", to: "/jobs/new" },
+    { id: "n3", title: "Add Skill", to: "/skills/new" },
   ];
 
   return (
