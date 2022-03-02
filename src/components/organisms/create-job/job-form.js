@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateButton from "../../atoms/create-button";
 import Input from "../../atoms/input";
 import classes from "./job-form.module.css";
 
 const JobForm = () => {
   const [jobTitle, setJobTitle] = useState("");
+  const [skillList, setSkillList] = useState([]);
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
@@ -17,6 +18,24 @@ const JobForm = () => {
       },
     });
   };
+
+  useEffect(() => {
+    const fetchSkillList = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/skills`
+        );
+
+        const responseData = await response.json();
+
+        setSkillList(responseData.skills);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchSkillList();
+  }, []);
 
   return (
     <form className={classes[componentName]} onSubmit={formSubmitHandler}>
@@ -31,6 +50,13 @@ const JobForm = () => {
           onChange={setJobTitle}
         />
       </div>
+
+      {skillList.map((skill) => (
+        <div key={skill.id}>
+          <input type={"checkbox"} value={skill.title} />
+          <lable>{skill.title}</lable>
+        </div>
+      ))}
 
       <CreateButton
         title="Add New Job"
