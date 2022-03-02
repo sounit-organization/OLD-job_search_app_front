@@ -1,3 +1,4 @@
+import LikeButton from "../../atoms/like-button";
 import Button from "../../atoms/button";
 import classes from "./job-detail-item.module.css";
 import SkillList from "./job-detail-skill";
@@ -155,22 +156,22 @@ const DUMMIDATA = [
   },
 ];
 
-const JobDetailItem = (props) => {
+const JobDetailItem = ({ jobDetail }) => {
   return (
-    <li className={classes["jobDetail-item"]}>
+    <div className={classes["jobDetail-item"]}>
       <section className={classes["jobDetail__header"]}>
-        <h3 className={classes["jobDetail__title"]}>
-          {props.jobDetailList.title}
-        </h3>
+        <h3 className={classes["jobDetail__title"]}>{jobDetail.title}</h3>
         <p className={classes["jobDetail__location"]}>
           {DUMMIDATA[0].location}
         </p>
         <p className={classes["jobDetail__role"]}>{DUMMIDATA[0].role}</p>
-        <Button title="Apply Now"></Button>
-        {/* <LikeButton job={props.jobDetailList.id} /> */}
+        <div className={classes["btns-wrapper"]}>
+          <Button title="Apply Now" className={classes["btn__apply"]}></Button>
+          <LikeButton job={jobDetail} />
+        </div>
       </section>
       <section className={classes["jobDetail__main"]}>
-        <h5>{props.jobDetailList.title}</h5>
+        <h5>{jobDetail.title}</h5>
         <h5>What's the job?</h5>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -208,7 +209,7 @@ const JobDetailItem = (props) => {
         <h5>skills needed</h5>
         <SkillList skills={DUMMIDATA[2].tools} />
       </section>
-    </li>
+    </div>
   );
 };
 export default JobDetailItem;

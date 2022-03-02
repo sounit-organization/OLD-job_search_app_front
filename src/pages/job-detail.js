@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const JobDetail = () => {
-  const [jobDetailList, setJobDetailList] = useState([]);
+  const [jobDetail, setJobDetail] = useState([]);
   const params = useParams();
   useEffect(() => {
     const fetchJobDetails = async () => {
@@ -12,13 +12,12 @@ const JobDetail = () => {
           `${process.env.REACT_APP_BACKEND_URL}/jobs/${params.jobId}`
         );
         const data = await response.json();
-        console.log(data.job);
 
         if (!response.ok) {
           throw new Error("something went wrong!!");
         }
 
-        setJobDetailList(data.job);
+        setJobDetail(data.job);
       } catch (err) {
         console.log(err.message);
       }
@@ -26,6 +25,6 @@ const JobDetail = () => {
     fetchJobDetails();
   }, []);
 
-  return <JobDetailItem jobDetailList={jobDetailList} />;
+  return <JobDetailItem jobDetail={jobDetail} />;
 };
 export default JobDetail;

@@ -15,6 +15,12 @@
 .jobDetail__role {
   font-size: 0.8rem;
 }
+.btns-wrapper {
+  display: flex;
+}
+.btn__apply {
+  margin-right: 0.5rem;
+}
 .jobDetail__main {
   padding: 1rem;
 }
