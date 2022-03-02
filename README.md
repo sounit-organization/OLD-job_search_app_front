@@ -1,3 +1,27 @@
+# Setup Steps
+- clone this repository
+- get .env file from google drive
+- put .env file to root directory(same directory with package.json)
+- npm start
+- you will see the frontend screen
+
+# Work Flow
+- Create issue (if your issue doesn't exit)
+- Issue review (if you create a new one)
+- create a new branch which follow naming convention
+```
+git switch -c issues/66-sample-test
+```
+- Fix code
+- push YOUR BRANCH to your remote
+```
+git push origin YOUR_BRANCH
+```
+- create Pull-request from YOUR BRANCH to origin master
+- Code review
+- Merge to master
+- task done.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
