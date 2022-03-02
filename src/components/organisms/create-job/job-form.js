@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CreateButton from "../../atoms/create-button";
 import Input from "../../atoms/input";
 import classes from "./job-form.module.css";
@@ -52,12 +52,10 @@ const JobForm = () => {
       </div>
 
       {skillList.map((skill) => (
-        <Fragment key={skill.id}>
-          <div>
-            <input type={"checkbox"} value={skill.title} />
-            <lable>{skill.title}</lable>
-          </div>
-        </Fragment>
+        <div key={skill.id}>
+          <input type={"checkbox"} value={skill.title} />
+          <lable>{skill.title}</lable>
+        </div>
       ))}
 
       <CreateButton
