@@ -1,3 +1,4 @@
+import JobDetail from "./pages/job-detail";
 import CreateJob from "./pages/create-job";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import JobList from "./pages/job-list";
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<JobList />} />
             <Route path="/jobs/new" element={<CreateJob />} />
+            <Route path="/jobs/detail/:jobId" element={<JobDetail />} />
             <Route path="/skills/new" element={<CreateSkill />} />
           </Routes>
         </main>
