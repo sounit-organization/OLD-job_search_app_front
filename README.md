@@ -1,6 +1,6 @@
 # Setup Steps
 - clone this repository　to your local
-**NO FORK(if fork, PR don't connected to issue automaticallly)
+- NO FORK(if fork, PR don't connected to issue automaticallly)
 - get .env file from google drive
 - put .env file to root directory(same directory with package.json)
 - npm start
