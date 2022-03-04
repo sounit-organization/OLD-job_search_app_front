@@ -10,7 +10,7 @@ const ShowFavIcon = () => {
   };
 
   return (
-    <Link to="/" className={classes[componentName]}>
+    <Link to="/favorite" className={classes[componentName]}>
       Favorite {getFavJobsCount()}
     </Link>
   );
