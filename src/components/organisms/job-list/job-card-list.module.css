@@ -7,4 +7,10 @@
 
 .JobCardList__card {
   margin-bottom: 1rem;
+  margin-top: 20px;
+}
+
+.input {
+  width: 50px;
+  padding: 20px;
 }
