@@ -5,6 +5,7 @@ import Header from "./components/organisms/shared/header";
 import { Fragment } from "react";
 import "./App.css";
 import { CreateSkill } from "./pages/create-skill";
+import Favorite from "./pages/Favorite";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<JobList />} />
             <Route path="/jobs/new" element={<CreateJob />} />
             <Route path="/skills/new" element={<CreateSkill />} />
+            <Route path="/favorite" element={<Favorite />} />
           </Routes>
         </main>
       </BrowserRouter>
