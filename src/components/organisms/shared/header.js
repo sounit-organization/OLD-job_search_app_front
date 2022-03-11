@@ -14,6 +14,10 @@ const Header = () => {
       <Link to="/" className={classes[`${componentName}__logo-link`]}>
         <h1 className={classes[`${componentName}__logo-text`]}>Job Search</h1>
       </Link>
+<<<<<<< HEAD
+=======
+      {/* <Input className={classes[`${componentName}__input`]} /> */}
+>>>>>>> af990a2d988c312afef840cbd7fb91b1c468744b
       <div className={classes[`${componentName}__nav-items`]}>
         <NavItems items={navItems} />
       </div>
