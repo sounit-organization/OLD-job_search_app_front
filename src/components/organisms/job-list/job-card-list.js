@@ -7,7 +7,11 @@ const componentName = "JobCardList";
 
 const JobCardList = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchCity, setSearchCity] = useState("");
 
+  const cityChangeHandler = (event) => {
+    setSearchCity(event.target.value);
+  };
   return (
     <div>
       <div className={classes[componentName]}>
@@ -21,15 +25,17 @@ const JobCardList = (props) => {
         <Input
           placeholder="Vancouver, BC"
           className={classes[`${componentName}__input`]}
+          onChange={cityChangeHandler}
         />
       </div>
       <ul className={classes[`${componentName}__list`]}>
         {props.jobList
           .filter((val) => {
-            if (searchTerm == "") {
+            if (searchTerm === "" && searchCity === "") {
               return val;
             } else if (
-              val.title.toLowerCase().includes(searchTerm.toLowerCase())
+              val.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+              val.title.toLowerCase().includes(searchCity.toLowerCase())
             ) {
               return val;
             }

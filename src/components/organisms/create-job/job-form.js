@@ -4,15 +4,16 @@ import Input from "../../atoms/input";
 import classes from "./job-form.module.css";
 
 const JobForm = () => {
-  const [jobTitle, setJobTitle] = useState("");
   const [skillList, setSkillList] = useState([]);
+  const [jobTitle, setJobTitle] = useState("");
+  const [jobCity, setJobCity] = useState("");
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
     await fetch(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
       method: "POST",
-      body: JSON.stringify({ title: jobTitle }),
+      body: JSON.stringify({ title: jobTitle, city: jobCity }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -37,17 +38,29 @@ const JobForm = () => {
     fetchSkillList();
   }, []);
 
+  const jobCityHandler = (event) => {
+    setJobCity(event.target.value);
+  };
+  const jobTitleHandler = (event) => {
+    setJobTitle(event.target.value);
+  };
+
   return (
     <form className={classes[componentName]} onSubmit={formSubmitHandler}>
       <div className={classes[`${componentName}__control`]}>
-        <label className={classes[`${componentName}__label`]} htmlFor="title">
-          Job Title
-        </label>
         <Input
+          name="Job Title"
           id="title"
           placeholder="title"
           value={jobTitle}
-          onChange={setJobTitle}
+          onChange={jobTitleHandler}
+        />
+        <Input
+          name="Job City"
+          id="city"
+          placeholder="city"
+          value={jobCity}
+          onChange={jobCityHandler}
         />
       </div>
 

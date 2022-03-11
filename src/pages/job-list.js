@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import JobCardList from "../components/organisms/job-list/job-card-list";
-import JobSearch from "../components/organisms/job-list/job-search";
 import classes from "./job-list.module.css";
 
 const JobList = () => {

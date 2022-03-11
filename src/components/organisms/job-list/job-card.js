@@ -11,6 +11,7 @@ const JobCard = (props) => {
     >
       <Card className={`${classes[componentName]} ${props.className}`}>
         <h2 className={classes["JobCard__title"]}>{props.job.title}</h2>
+        <h2 className={classes["JobCard__title"]}>{props.job.city}</h2>
         <div>
           {props.job.skills.map((skill) => (
             <div key={skill.id}>{skill.title}</div>
