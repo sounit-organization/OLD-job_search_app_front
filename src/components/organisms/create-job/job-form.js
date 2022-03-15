@@ -4,15 +4,25 @@ import Input from "../../atoms/input";
 import classes from "./job-form.module.css";
 
 const JobForm = () => {
-  const [jobTitle, setJobTitle] = useState("");
   const [skillList, setSkillList] = useState([]);
+  const [jobTitle, setJobTitle] = useState("");
+  const [jobCity, setJobCity] = useState("");
+  const [jobDescription, setJobDescription] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [payment, setPayment] = useState("");
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
     await fetch(`${process.env.REACT_APP_BACKEND_URL}/jobs`, {
       method: "POST",
-      body: JSON.stringify({ title: jobTitle }),
+      body: JSON.stringify({
+        title: jobTitle,
+        city: jobCity,
+        companyName: companyName,
+        payment: payment,
+        description: jobDescription,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -37,24 +47,64 @@ const JobForm = () => {
     fetchSkillList();
   }, []);
 
+  const jobCityHandler = (event) => {
+    setJobCity(event.target.value);
+  };
+  const jobTitleHandler = (event) => {
+    setJobTitle(event.target.value);
+  };
+  const jobDescriptionHandler = (event) => {
+    setJobDescription(event.target.value);
+  };
+  const companyNameHandler = (event) => {
+    setCompanyName(event.target.value);
+  };
+  const paymentHandler = (event) => {
+    setPayment(event.target.value);
+  };
+
   return (
     <form className={classes[componentName]} onSubmit={formSubmitHandler}>
       <div className={classes[`${componentName}__control`]}>
-        <label className={classes[`${componentName}__label`]} htmlFor="title">
-          Job Title
-        </label>
         <Input
+          name="Job Title"
           id="title"
           placeholder="title"
           value={jobTitle}
-          onChange={setJobTitle}
+          onChange={jobTitleHandler}
+        />
+        <Input
+          name="Company Name"
+          id="companyName"
+          placeholder="companyName"
+          value={companyName}
+          onChange={companyNameHandler}
+        />
+        <Input
+          name="Job City"
+          id="city"
+          placeholder="city"
+          value={jobCity}
+          onChange={jobCityHandler}
+        />
+        <Input
+          name="Payment"
+          id="payment"
+          placeholder="payment"
+          value={payment}
+          onChange={paymentHandler}
         />
       </div>
+      <label>Job Description</label>
+      <textarea
+        onChange={jobDescriptionHandler}
+        value={jobDescription}
+      ></textarea>
 
       {skillList.map((skill) => (
         <div key={skill.id}>
           <input type={"checkbox"} value={skill.title} />
-          <lable>{skill.title}</lable>
+          <label>{skill.title}</label>
         </div>
       ))}
 
