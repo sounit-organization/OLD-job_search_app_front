@@ -6,8 +6,12 @@ import { useState } from "react";
 const componentName = "JobCardList";
 
 const JobCardList = (props) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTitle, setSearchTitle] = useState("");
   const [searchCity, setSearchCity] = useState("");
+
+  const titleChangeHandler = (event) => {
+    setSearchTitle(event.target.value);
+  };
 
   const cityChangeHandler = (event) => {
     setSearchCity(event.target.value);
@@ -18,9 +22,7 @@ const JobCardList = (props) => {
         <Input
           placeholder="Job title"
           className={classes[`${componentName}__input`]}
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
+          onChange={titleChangeHandler}
         />
         <Input
           placeholder="Vancouver, BC"
@@ -31,11 +33,14 @@ const JobCardList = (props) => {
       <ul className={classes[`${componentName}__list`]}>
         {props.jobList
           .filter((val) => {
-            if (searchTerm === "" && searchCity === "") {
+            if (
+              (searchTitle === "" && searchCity === "") ||
+              val.city === undefined
+            ) {
               return val;
             } else if (
-              val.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-              val.title.toLowerCase().includes(searchCity.toLowerCase())
+              val.title.toLowerCase().includes(searchTitle.toLowerCase()) &&
+              val.city.toLowerCase().includes(searchCity.toLowerCase())
             ) {
               return val;
             }
