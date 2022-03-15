@@ -9,29 +9,39 @@ const JobCardList = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className={classes[componentName]}>
-
-      <input
-        type="text"
-        placeholder="Serch..."
-        onChange={(event) => {
-          setSearchTerm(event.target.value)
-        }} />
-
-      {props.jobList.filter((val) => {
-        if (searchTerm == "") {
-          return val;
-        } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-          return val;
-        }
-      }).map((job) => (
-        <JobCard
-          key={job.id}
-          job={job}
-          className={classes[`${componentName}__card`]}
+    <div>
+      <div className={classes[componentName]}>
+        <Input
+          placeholder="Job title"
+          className={classes[`${componentName}__input`]}
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
         />
-      ))}
-
+        <Input
+          placeholder="Vancouver, BC"
+          className={classes[`${componentName}__input`]}
+        />
+      </div>
+      <ul className={classes[`${componentName}__list`]}>
+        {props.jobList
+          .filter((val) => {
+            if (searchTerm == "") {
+              return val;
+            } else if (
+              val.title.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((job) => (
+            <JobCard
+              key={job.id}
+              job={job}
+              className={classes[`${componentName}__card`]}
+            />
+          ))}
+      </ul>
     </div>
   );
 };

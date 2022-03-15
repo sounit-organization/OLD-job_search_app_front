@@ -7,7 +7,7 @@ const Input = (props) => {
       placeholder={props.placeholder || "Search"}
       className={`${classes[componentName]} ${props.className}`}
       value={props.value}
-      onChange={(event) => props.onChange(event.target.value)}
+      onChange={props.onChange}
     />
   );
 };
