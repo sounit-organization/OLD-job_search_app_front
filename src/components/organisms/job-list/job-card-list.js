@@ -8,6 +8,9 @@ const componentName = "JobCardList";
 const JobCardList = (props) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [searchCity, setSearchCity] = useState("");
+  const [filteredJobs, setFilteredJobs] = useState([]);
+
+  const isFilteredJobsEmpty = filteredJobs.length === 0;
 
   const titleChangeHandler = (event) => {
     setSearchTitle(event.target.value);
@@ -16,6 +19,31 @@ const JobCardList = (props) => {
   const cityChangeHandler = (event) => {
     setSearchCity(event.target.value);
   };
+
+  const filteredJobsHandler = (event) => {
+    event.preventDefault();
+    const filter = props.jobList.filter((job) => {
+      // there is one record from before that we added city to the table so I added the condition of undefined
+      if (job.city !== undefined) {
+        if (searchCity !== "" && searchTitle !== "") {
+          return (
+            job.city.toLowerCase().includes(searchCity.trim().toLowerCase()) ||
+            job.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
+          );
+        }
+        if (searchCity !== "") {
+          return job.city
+            .toLowerCase()
+            .includes(searchCity.trim().toLowerCase());
+        } else if (searchTitle !== "") {
+          return job.title
+            .toLowerCase()
+            .includes(searchTitle.trim().toLowerCase());
+        }
+      }
+    });
+    setFilteredJobs(filter);
+  };
   return (
     <div>
       <div className={classes[componentName]}>
@@ -23,35 +51,32 @@ const JobCardList = (props) => {
           placeholder="Job title"
           className={classes[`${componentName}__input`]}
           onChange={titleChangeHandler}
+          value={searchTitle}
         />
         <Input
           placeholder="Vancouver, BC"
           className={classes[`${componentName}__input`]}
           onChange={cityChangeHandler}
+          value={searchCity}
         />
+        <button onClick={filteredJobsHandler}>Search</button>
       </div>
       <ul className={classes[`${componentName}__list`]}>
-        {props.jobList
-          .filter((val) => {
-            if (
-              (searchTitle === "" && searchCity === "") ||
-              val.city === undefined
-            ) {
-              return val;
-            } else if (
-              val.title.toLowerCase().includes(searchTitle.toLowerCase()) &&
-              val.city.toLowerCase().includes(searchCity.toLowerCase())
-            ) {
-              return val;
-            }
-          })
-          .map((job) => (
-            <JobCard
-              key={job.id}
-              job={job}
-              className={classes[`${componentName}__card`]}
-            />
-          ))}
+        {!isFilteredJobsEmpty
+          ? filteredJobs.map((job) => (
+              <JobCard
+                key={job.id}
+                job={job}
+                className={classes[`${componentName}__card`]}
+              />
+            ))
+          : props.jobList.map((job) => (
+              <JobCard
+                key={job.id}
+                job={job}
+                className={classes[`${componentName}__card`]}
+              />
+            ))}
       </ul>
     </div>
   );

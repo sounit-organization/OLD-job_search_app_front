@@ -2,6 +2,7 @@ import LikeButton from "../../atoms/like-button";
 import Button from "../../atoms/button";
 import classes from "./job-detail-item.module.css";
 import SkillList from "./job-detail-skill";
+import { Link } from "react-router-dom";
 
 const DUMMIDATA = [
   {
@@ -161,9 +162,9 @@ const JobDetailItem = ({ jobDetail }) => {
     <div className={classes["jobDetail-item"]}>
       <section className={classes["jobDetail__header"]}>
         <h3 className={classes["jobDetail__title"]}>{jobDetail.title}</h3>
-        <a href="#" className={classes["jobDetail__company"]}>
+        <Link to="#" className={classes["jobDetail__company"]}>
           {jobDetail.companyName}
-        </a>
+        </Link>
         <p className={classes["jobDetail__location"]}>{jobDetail.city}</p>
         <p
           className={classes["jobDetail__payment"]}
