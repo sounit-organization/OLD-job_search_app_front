@@ -15,9 +15,10 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<JobList />} />
+            <Route path="/" element={<JobList />}>
+              <Route path="/jobs/detail/:jobId" element={<JobDetail />} />
+            </Route>
             <Route path="/jobs/new" element={<CreateJob />} />
-            <Route path="/jobs/detail/:jobId" element={<JobDetail />} />
             <Route path="/skills/new" element={<CreateSkill />} />
             <Route path="/favorite" element={<Favorite />} />
           </Routes>

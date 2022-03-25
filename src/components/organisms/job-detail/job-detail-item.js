@@ -179,7 +179,7 @@ const JobDetailItem = ({ jobDetail }) => {
         <h5>What's the job?</h5>
         <p>{jobDetail.description}</p>
         <h5>skills needed</h5>
-        <SkillList skills={DUMMIDATA[2].tools} />
+        <SkillList skills={DUMMIDATA[2]} />
       </section>
     </div>
   );
