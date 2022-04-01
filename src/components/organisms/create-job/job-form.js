@@ -66,12 +66,12 @@ const JobForm = () => {
   };
 
   // insert checked Skills into skills array
-  const inputSkillsHandler = (value) => {
-    const currentIndex = skills.indexOf(value);
+  const inputSkillsHandler = (id, title) => {
+    const currentIndex = skills.indexOf(id);
     const newSkills = [...skills];
 
     if (currentIndex === -1) {
-      newSkills.push(value);
+      newSkills.push(title);
     } else {
       newSkills.splice(currentIndex, 1);
     }
@@ -121,7 +121,7 @@ const JobForm = () => {
           <input
             type={"checkbox"}
             value={skill.title}
-            onChange={() => inputSkillsHandler(skill.id)}
+            onChange={() => inputSkillsHandler(skill.id, skill.title)}
           />
           <label>{skill.title}</label>
         </div>

@@ -158,6 +158,7 @@ const DUMMIDATA = [
 ];
 
 const JobDetailItem = ({ jobDetail }) => {
+  console.log(jobDetail);
   return (
     <div className={classes["jobDetail-item"]}>
       <section className={classes["jobDetail__header"]}>
@@ -179,7 +180,7 @@ const JobDetailItem = ({ jobDetail }) => {
         <h5>What's the job?</h5>
         <p>{jobDetail.description}</p>
         <h5>skills needed</h5>
-        <SkillList skills={DUMMIDATA[2]} />
+        <SkillList jobDetail={jobDetail} />
       </section>
     </div>
   );

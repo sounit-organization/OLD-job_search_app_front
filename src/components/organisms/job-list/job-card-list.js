@@ -10,6 +10,7 @@ const JobCardList = (props) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [searchCity, setSearchCity] = useState("");
   const [filteredJobs, setFilteredJobs] = useState([]);
+  // const [checked, setChecked] = useState([]);
 
   const isFilteredJobsEmpty = filteredJobs.length === 0;
 
@@ -45,6 +46,39 @@ const JobCardList = (props) => {
     });
     setFilteredJobs(filter);
   };
+
+  const checkedHandler = (checkedArr) => {
+    const filtered = props.jobList.filter((job) => {
+      // there is one record from before that we added desc to the table so I added the condition of undefined
+      if (job.description !== "" && job.description !== undefined) {
+        // checkedArr?.forEach((checked) => {
+        if (checkedArr[0] === 1 && checkedArr[1] === 2) {
+          return (
+            job.description
+              .toLowerCase()
+              .includes("full time".trim().toLowerCase()) ||
+            job.description
+              .toLowerCase()
+              .includes("part time".trim().toLowerCase())
+          );
+        }
+        if (checkedArr[0] === 1) {
+          return job.description
+            .toLowerCase()
+            .includes("part time".trim().toLowerCase());
+        }
+        if (checkedArr[0] === 2) {
+          return job.description
+            .toLowerCase()
+            .includes("full time".trim().toLowerCase());
+        }
+        // });
+      }
+    });
+    console.log(filtered);
+    setFilteredJobs(filtered);
+  };
+
   return (
     <div>
       <div className={classes[componentName]}>
@@ -62,7 +96,7 @@ const JobCardList = (props) => {
         />
         <button onClick={filteredJobsHandler}>Search</button>
       </div>
-      <CheckBox />
+      <CheckBox onChecked={checkedHandler} />
       <ul className={classes[`${componentName}__list`]}>
         {!isFilteredJobsEmpty
           ? filteredJobs.map((job) => (

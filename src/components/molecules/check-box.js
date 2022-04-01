@@ -5,9 +5,10 @@ const jobTypes = [
   { id: 2, name: "full time" },
 ];
 
-const CheckBox = () => {
+const CheckBox = ({ onChecked }) => {
   const [show, setShow] = useState(false);
   const [checked, setChecked] = useState([]);
+
   const showCheckBoxHandler = (event) => {
     event.preventDefault();
     setShow(!show);
@@ -22,6 +23,7 @@ const CheckBox = () => {
       newChecked.splice(currentIndex, 1);
     }
     setChecked(newChecked);
+    onChecked(newChecked);
   };
 
   return (

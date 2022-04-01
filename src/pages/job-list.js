@@ -14,6 +14,7 @@ const JobList = () => {
         );
 
         const responseData = await response.json();
+        console.log(responseData);
         setJobList(responseData.jobs);
       } catch (err) {
         console.log(err);
