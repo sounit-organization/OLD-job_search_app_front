@@ -2,6 +2,7 @@ import Input from "../../atoms/input";
 import JobCard from "./job-card";
 import classes from "./job-card-list.module.css";
 import { useState } from "react";
+import CheckBox from "../../molecules/check-box";
 
 const componentName = "JobCardList";
 
@@ -61,6 +62,7 @@ const JobCardList = (props) => {
         />
         <button onClick={filteredJobsHandler}>Search</button>
       </div>
+      <CheckBox />
       <ul className={classes[`${componentName}__list`]}>
         {!isFilteredJobsEmpty
           ? filteredJobs.map((job) => (
