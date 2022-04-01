@@ -7,14 +7,23 @@ const jobTypes = [
 
 const CheckBox = () => {
   const [show, setShow] = useState(false);
-  const [inputValues, setInputValues] = useState([]);
+  const [checked, setChecked] = useState([]);
   const showCheckBoxHandler = (event) => {
     event.preventDefault();
     setShow(!show);
   };
-  const inputChangeHandler = (event) => {
-    setInputValues(event.target.value);
+
+  const inputChangeHandler = (value) => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    setChecked(newChecked);
   };
+
   return (
     <>
       <button onClick={showCheckBoxHandler}>Job Type</button>
@@ -27,12 +36,11 @@ const CheckBox = () => {
                 type="checkbox"
                 name={job.name}
                 value={job.id}
-                onChange={inputChangeHandler}
+                onChange={() => inputChangeHandler(job.id)}
               ></input>
             </div>
           );
         })}
-      {console.log(inputValues)}
     </>
   );
 };
