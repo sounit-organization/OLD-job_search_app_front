@@ -1,8 +1,9 @@
 import { useState } from "react";
+import classes from "./check-box.module.css";
 
 const jobTypes = [
-  { id: 1, name: "part time" },
-  { id: 2, name: "full time" },
+  { id: 1, name: "Part Time" },
+  { id: 2, name: "Full Time" },
 ];
 
 const CheckBox = ({ onChecked }) => {
@@ -27,23 +28,33 @@ const CheckBox = ({ onChecked }) => {
   };
 
   return (
-    <>
-      <button onClick={showCheckBoxHandler}>Job Type</button>
-      {show &&
-        jobTypes.map((job) => {
-          return (
-            <div key={job.id}>
-              <label>{job.name}</label>
-              <input
-                type="checkbox"
-                name={job.name}
-                value={job.id}
-                onChange={() => inputChangeHandler(job.id)}
-              ></input>
-            </div>
-          );
-        })}
-    </>
+    <div className={classes["job-type__wrapper"]}>
+      <button
+        onClick={showCheckBoxHandler}
+        className={`${classes["job-type__btn"]} ${
+          show && classes["job-type__show"]
+        }`}
+      >
+        Job Type
+      </button>
+      <div className={classes["check-wrapper"]}>
+        {show &&
+          jobTypes.map((job) => {
+            return (
+              <div key={job.id} className={classes["job-type__check"]}>
+                <label className={classes["job-type__label"]}>{job.name}</label>
+                <input
+                  className={classes["job-type__input"]}
+                  type="checkbox"
+                  name={job.name}
+                  value={job.id}
+                  onChange={() => inputChangeHandler(job.id)}
+                ></input>
+              </div>
+            );
+          })}
+      </div>
+    </div>
   );
 };
 

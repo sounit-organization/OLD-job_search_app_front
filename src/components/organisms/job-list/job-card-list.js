@@ -80,7 +80,7 @@ const JobCardList = (props) => {
   };
 
   return (
-    <div>
+    <>
       <div className={classes[componentName]}>
         <Input
           placeholder="Job title"
@@ -94,7 +94,12 @@ const JobCardList = (props) => {
           onChange={cityChangeHandler}
           value={searchCity}
         />
-        <button onClick={filteredJobsHandler}>Search</button>
+        <button
+          onClick={filteredJobsHandler}
+          className={classes[`${componentName}__btn`]}
+        >
+          Find Jobs
+        </button>
       </div>
       <CheckBox onChecked={checkedHandler} />
       <ul className={classes[`${componentName}__list`]}>
@@ -114,7 +119,7 @@ const JobCardList = (props) => {
               />
             ))}
       </ul>
-    </div>
+    </>
   );
 };
 
