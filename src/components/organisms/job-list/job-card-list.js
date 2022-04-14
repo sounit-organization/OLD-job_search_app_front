@@ -27,21 +27,23 @@ const JobCardList = (props) => {
     const filter = props.jobList.filter((job) => {
       // there is one record from before that we added city to the table so I added the condition of undefined
       if (job.city !== undefined) {
-        if (searchCity !== "" && searchTitle !== "") {
-          return (
-            job.city.toLowerCase().includes(searchCity.trim().toLowerCase()) ||
-            job.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
-          );
-        }
+        // if (searchCity !== "" && searchTitle !== "") {
+        //   return (
+        //     job.city.toLowerCase().includes(searchCity.trim().toLowerCase()) ||
+        //     job.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
+        //   );
+
+        console.log(job.city);
         if (searchCity !== "") {
           return job.city
             .toLowerCase()
             .includes(searchCity.trim().toLowerCase());
-        } else if (searchTitle !== "") {
-          return job.title
-            .toLowerCase()
-            .includes(searchTitle.trim().toLowerCase());
         }
+      }
+      if (searchTitle !== "") {
+        return job.title
+          .toLowerCase()
+          .includes(searchTitle.trim().toLowerCase());
       }
     });
     setFilteredJobs(filter);
